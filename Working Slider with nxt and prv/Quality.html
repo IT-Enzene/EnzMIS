@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Power BI Slider With Next And Previous Buttons</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  </head>
+  <body>
+
+    <nav>
+        <ul>
+          <li class="menu"><a href="./Finance.html">Finance</a></li>
+          <li class="menu"><a href="./IT.html">IT</a></li>
+          <li class="menu"><a class="current" href="#">Quality</a></li>
+          <li class="menu"><a href="./Manufacturing.html">Manufacturing</a></li>  
+          <li class="menu"><a href="./RnD.html">RnD</a></li>
+          <li class="menu"><a href="./CMC RA.html">CMC RA</a></li>
+        </ul>
+
+          <!-- Button -->
+
+      <div class="showcase-area">
+        <div class="container">
+          <div class="left">
+            <div class="cta">
+              <a href="../index.html" class="btn">HOME</a>
+            </div>
+          </div>
+
+      <!-- End Of Button -->
+      </nav>  
+
+
+    <div class="slider">
+      <div class="slide active">
+      <iframe title="Audit MIS 1" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=b397cdc3-46c2-47f4-b0c3-85d83a50717e&autoAuth=true&ctid=2cdff497-36f7-4e88-b0ba-13c895a6f720&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
+       </div>
+
+      <div class="slide">
+        <iframe title="Audit MIS 2" width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=081a3655-8f47-412d-bcb2-e837d9ac3cdf&autoAuth=true&ctid=2cdff497-36f7-4e88-b0ba-13c895a6f720&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
+      </div>
+
+      <div class="slide">
+        <iframe title="Audit MIS 3" width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=d6e83f08-4245-4f94-9094-80f68944b672&autoAuth=true&ctid=2cdff497-36f7-4e88-b0ba-13c895a6f720&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
+      </div>
+
+      <div class="slide">
+        <iframe title="Audit MIS 4" width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=0c401e32-b9e8-4552-947d-2130823ee8f7&autoAuth=true&ctid=2cdff497-36f7-4e88-b0ba-13c895a6f720&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
+      </div>
+
+      
+      <div class="navigation">
+        <i class="fas fa-chevron-left prev-btn"></i>
+        <i class="fas fa-chevron-right next-btn"></i>
+      </div>
+
+    </div>
+
+
+    <!-- ADDED -->
+
+    <script type="text/javascript">
+        const slider = document.querySelector(".slider");
+        const nextBtn = document.querySelector(".next-btn");
+        const prevBtn = document.querySelector(".prev-btn");
+        const slides = document.querySelectorAll(".slide");
+        const slideIcons = document.querySelectorAll(".slide-icon");
+        const numberOfSlides = slides.length;
+        var slideNumber = 0;
+        
+        {/* image slider next button */}
+        nextBtn.addEventListener("click", () => {
+          slides.forEach((slide) => {
+            slide.classList.remove("active");
+          });
+          slideIcons.forEach((slideIcon) => {
+            slideIcon.classList.remove("active");
+          });
+        
+          slideNumber++;
+        
+          if(slideNumber > (numberOfSlides - 1)){
+            slideNumber = 0;
+          }
+        
+          slides[slideNumber].classList.add("active");
+          slideIcons[slideNumber].classList.add("active");
+        });
+        
+        {/* image slider previous button */}
+        prevBtn.addEventListener("click", () => {
+          slides.forEach((slide) => {
+            slide.classList.remove("active");
+          });
+          slideIcons.forEach((slideIcon) => {
+            slideIcon.classList.remove("active");
+          });
+        
+          slideNumber--;
+        
+          if(slideNumber < 0){
+            slideNumber = numberOfSlides - 1;
+          }
+        
+          slides[slideNumber].classList.add("active");
+          slideIcons[slideNumber].classList.add("active");
+        });
+        
+        {/* image slider autoplay */}
+        var playSlider;
+        
+        var repeater = () => {
+          playSlider = setInterval(function(){
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+        
+            slideNumber++;
+        
+            if(slideNumber > (numberOfSlides - 1)){
+              slideNumber = 0;
+            }
+        
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          }, 10000);
+        }
+        repeater();
+        
+        {/* stop the image slider autoplay on mouseover */}
+        slider.addEventListener("mouseover", () => {
+          clearInterval(playSlider);
+        });
+        
+        {/* start the image slider autoplay again on mouseout */}
+        slider.addEventListener("mouseout", () => {
+          repeater();
+        });
+        </script>
+  </body>
+</html>
+      

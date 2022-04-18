@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Power BI Slider With Next And Previous Buttons</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  </head>
+  <body>
+
+    <nav>
+        <ul>
+          <li class="menu"><a href="./Finance.html">Finance</a></li>
+          <li class="menu"><a href="./IT.html">IT</a></li>
+          <li class="menu"><a href="./Quality.html">Quality</a></li>
+          <li class="menu"><a href="./Manufacturing.html">Manufacturing</a></li>  
+          <li class="menu"><a class="current" href="#">RnD</a></li>
+          <li class="menu"><a href="./CMC RA.html">CMC RA</a></li>
+        </ul>
+
+          <!-- Button -->
+
+      <div class="showcase-area">
+        <div class="container">
+          <div class="left">
+            <div class="cta">
+              <a href="../index.html" class="btn">HOME</a>
+            </div>
+          </div>
+
+      <!-- End Of Button -->
+      </nav>  
+
+
+      <div class="slider">
+        <div class="slide active">
+          <iframe title="BPD and Resource utilization 1" width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=cd9b6e69-667c-4605-a7bc-efc4e99c3338&autoAuth=true&ctid=2cdff497-36f7-4e88-b0ba-13c895a6f720&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+
+        <div class="slide active">
+          <iframe title="BPD and Resource utilization 2" width="10015" height="1005" src="https://app.powerbi.com/reportEmbed?reportId=8214e660-72e2-4151-bade-d79031f7fd85&autoAuth=true&ctid=2cdff497-36f7-4e88-b0ba-13c895a6f720&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+
+        <div class="slide active">
+          <iframe title="BPD and Resource utilization 3" width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=6d988697-0e99-4872-bbdf-386d28adb582&autoAuth=true&ctid=2cdff497-36f7-4e88-b0ba-13c895a6f720&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+
+        <div class="slide active">
+          <iframe title="CLE and BAS 1" width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=7afbea7c-f3e8-4a48-8839-b804b6ccfd6f&autoAuth=true&ctid=2cdff497-36f7-4e88-b0ba-13c895a6f720&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+
+        <div class="slide active">
+          <iframe title="CLE and BAS 2" width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=e0c7b34a-d969-4555-bdfe-a14afefd85f2&autoAuth=true&ctid=2cdff497-36f7-4e88-b0ba-13c895a6f720&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+
+        <div class="slide active">
+          <iframe title="CLE and BAS 3" width="100%" height="100%" src="https://app.powerbi.com/reportEmbed?reportId=a7748f32-1cd7-4a7a-860a-6f47187e3e37&autoAuth=true&ctid=2cdff497-36f7-4e88-b0ba-13c895a6f720&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+
+      <div class="navigation">
+        <i class="fas fa-chevron-left prev-btn"></i>
+        <i class="fas fa-chevron-right next-btn"></i>
+      </div>
+    </div>
+
+
+    <!-- ADDED -->
+
+    <script type="text/javascript">
+        const slider = document.querySelector(".slider");
+        const nextBtn = document.querySelector(".next-btn");
+        const prevBtn = document.querySelector(".prev-btn");
+        const slides = document.querySelectorAll(".slide");
+        const slideIcons = document.querySelectorAll(".slide-icon");
+        const numberOfSlides = slides.length;
+        var slideNumber = 0;
+        
+        {/* image slider next button */}
+        nextBtn.addEventListener("click", () => {
+          slides.forEach((slide) => {
+            slide.classList.remove("active");
+          });
+          slideIcons.forEach((slideIcon) => {
+            slideIcon.classList.remove("active");
+          });
+        
+          slideNumber++;
+        
+          if(slideNumber > (numberOfSlides - 1)){
+            slideNumber = 0;
+          }
+        
+          slides[slideNumber].classList.add("active");
+          slideIcons[slideNumber].classList.add("active");
+        });
+        
+        {/* image slider previous button */}
+        prevBtn.addEventListener("click", () => {
+          slides.forEach((slide) => {
+            slide.classList.remove("active");
+          });
+          slideIcons.forEach((slideIcon) => {
+            slideIcon.classList.remove("active");
+          });
+        
+          slideNumber--;
+        
+          if(slideNumber < 0){
+            slideNumber = numberOfSlides - 1;
+          }
+        
+          slides[slideNumber].classList.add("active");
+          slideIcons[slideNumber].classList.add("active");
+        });
+        
+        {/* image slider autoplay */}
+        var playSlider;
+        
+        var repeater = () => {
+          playSlider = setInterval(function(){
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+        
+            slideNumber++;
+        
+            if(slideNumber > (numberOfSlides - 1)){
+              slideNumber = 0;
+            }
+        
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          }, 10000);
+        }
+        repeater();
+        
+        {/* stop the image slider autoplay on mouseover */}
+        slider.addEventListener("mouseover", () => {
+          clearInterval(playSlider);
+        });
+        
+        {/* start the image slider autoplay again on mouseout */}
+        slider.addEventListener("mouseout", () => {
+          repeater();
+        });
+        </script>
+
+        <!-- To show Current page -->
+  <script src="./script.js"></script> 
+
+</body>
+</html>
+      
